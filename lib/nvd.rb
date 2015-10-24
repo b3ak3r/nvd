@@ -1,5 +1,5 @@
 require "nvd/version"
+require_relative "./nvd/base"
 
 module Nvd
-  # Your code goes here...
 end
