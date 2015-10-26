@@ -1,6 +1,6 @@
 # Nvd
 
-TODO: Write a gem description
+Automate the construction of your own vulnerability database, based on NVD
 
 ## Installation
 
@@ -20,7 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+vagrant up
+vagrant ssh
+```
 
 ## Contributing
 
