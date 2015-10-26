@@ -1,10 +1,12 @@
 require 'nokogiri'
+require 'types'
 
 module Nvd
   class Base
     def initialize(nvdfile)
       @nvdfile = nvdfile
       @vendor_map = {}
+      @db = Db.new
     end
 
     def do_cpe(node)

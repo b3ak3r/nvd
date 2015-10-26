@@ -4,14 +4,21 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "puppetlabs/debian-7.8-64-puppet"
 
+  config.vm.synced_folder ".", "/src/nvd"
   config.vm.synced_folder "./puppet", "/src/puppet"
   config.vm.synced_folder "./resources", "/src/resources"
 
   config.vm.provision "shell", :privileged => true, :inline => <<-SHELL
     apt-get update
-    apt-get install -y git ruby
+    apt-get install -y git ruby ruby-dev zlib1g-dev
     /usr/bin/gem install r10k
+    /usr/bin/gem install bundler
   SHELL
+
+  config.vm.provision "shell", :privileged => false, :inline => <<-BUNDLER
+    cd /src/nvd
+    bundle install
+  BUNDLER
 
   config.vm.provision "shell", :privileged => true, :inline => <<-R10K
     cp /src/puppet/Puppetfile .
