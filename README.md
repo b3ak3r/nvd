@@ -20,10 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-```
-vagrant up
-vagrant ssh
-```
+    $ vagrant up
+    $ vagrant ssh
 
 ## Contributing
 
